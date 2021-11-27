@@ -1,0 +1,45 @@
+---
+Title: 'Coding Exercise 1_Batch 8'
+Nama: Novita Purwoningtyas
+---
+
+# Soal 1
+
+Menampilkan bilangan kelipatan 3 menggunakan Looping.
+
+```{r}
+angka = c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22)
+hasil = 0
+for (i in angka){
+  if (i %%3 == 0)
+  print(i)
+}
+```
+
+# Soal 2
+
+Membuat sebuah function dan mengecek bilangan tersebut bilangan prima atau bukan menggunakan Looping dan Modulo.
+
+```{r}
+bilangan_prima = function(n){
+  if (n == 2){
+  print(paste(n,'adalah bilangan prima'))}
+  else if (n > 2){
+    a = sqrt(n)#menentukan akar kuadrat
+    b = round(a, digits = 1)#membulatkan hasil angka kuadrat
+    vec = c(2:b)#membuat vektor angka dari 2 sampai angka 'B'
+    d = n %% (vec)#membagi angka hasil vektor dengan angka input
+  if (0 %in% d){#cek apakah ada hasil pembagian yg 0
+  print(paste(n,'bukan bilangan prima'))}
+  else{
+  print(paste(n,'adalah bilangan prima'))
+}
+}
+}
+
+```
+
+```{r}
+bilangan_prima(201)#masukan angka yg ingin di cek 
+
+```

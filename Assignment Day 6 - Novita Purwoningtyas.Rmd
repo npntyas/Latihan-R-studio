@@ -1,0 +1,71 @@
+---
+title: 'Assignment Day 6'
+Nama: Novita Purwoningtyas|Batch 8
+---
+
+# Soal 1
+
+Copy code ke R studio
+
+```{r}
+set.seed(1234) 
+my_data <- data.frame( name = paste0(rep("M_", 10), 1:10), weight = round(rnorm(10, 20, 2), 1) )
+View(my_data)
+```
+
+# Soal 2
+
+Carilah summary statistik dari data tersebut (mean, median)
+
+```{r}
+#Mencari mean dari kolom weight
+hasil_mean = mean(my_data$weight)
+print(hasil_mean)
+```
+
+```{r}
+#Mencari median dari kolom weight
+hasil_median = median(my_data$weight)
+print(hasil_median)
+```
+
+Mean (nilai rata - rata) dari data diatas adalah 19.25 dan Median (nilai tengah) dari data diatas adalah 18.9
+
+# Soal 3
+
+Visualisasi menggunakan box plot.
+
+```{r}
+boxplot(my_data$weight, horizontal = TRUE)
+```
+
+# Soal 4
+
+Visualisasi data menggunakan histogram.
+
+```{r}
+hist(my_data$weight,main = 'Mouse Weight', xlab = 'Weight')
+```
+
+# Soal 5
+
+Pada box plot dapat dilihat tidak ada nilai data yang outlier (datanya terlalu ekstrim) dan pada grafik histogram dapat dilihat juga bahwa distribusinya normal (bentuknya mirip seperti lonceng). Pada box plot maupun grafik histogram dapat dilihat juga bahwa banyaknya persebaran data ada di antara 18 -21.
+
+# Soal 6
+
+Melakukan uji one sample t- test.
+
+**Hipotesis : Apakah berat rata - rata tikus 25 g?**
+
+H0 = Berat rata - rata tikus = 25g
+
+Ha = Berat rata - rata tikus ≠ 25g
+
+```{r}
+hasil = t.test(my_data$weight, mu = 25)
+hasil
+```
+
+# Soal 7
+
+Pada uji hipotesis diatas didapatkan kesimpulan bahwa H0 ditolak dan Ha diterima, yaitu **rata - rata berat tikus bukan 25 g,** melainkan 19.25g. Hal ini dibuktikan juga dengan nilai p-value lebih kecil dari nilai alpha (0.05, nilai ini didapat dari dikurangnya nilai confidence interval (0.95/95%).
